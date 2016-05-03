@@ -10,20 +10,13 @@ Data preparation refers to the act of manipulating ones data to transform it int
 
 ### Entity Resolution
 
-Entity resolution (ER) is the task of disambiguating records that correspond to real world entities across and within datasets. The applications of entity resolution are tremendous, particularly for public sector and federal datasets related to health, transportation, finance, law enforcement, and antiterrorism.
-
-Unfortunately, the problems associated with entity resolution are equally big — as the volume and velocity of data grow, inference across networks and semantic relationships between entities becomes more and more difficult. Data quality issues, schema variations, and idiosyncratic data collection traditions can all complicate these problems even further. When combined, such challenges amount to a substantial barrier to organizations’ ability to fully understand their data, let alone make effective use of predictive analytics to optimize targeting, thresholding, and resource management.
-
-Some of the tasks involved with Entity Resolution include:
-- Deduplication
-- Record Linkage
-- Canonicalization
+For an explanation of Entity Resolution, please refer [here](https://github.com/krossetti/DDL-DC/blob/master/entity-resolution-basics.md#what-is-entity-resolution) 
 
 In this blog, our focus will be specifically on record linkage and canonicalization of data.
 
 ### Dedupe
 
-[Dedupe](https://pypi.python.org/pypi/dedupe/1.4.3) is a library that uses machine learning to perform deduplication and entity resolution quickly on structured data.  There are other tools available for Entity Resolution as well but we will be focusing on using this particular tool.
+For an introduction to Dedupe, please refer [here](https://github.com/krossetti/DDL-DC/blob/master/entity-resolution-basics.md#about-dedupe)
 
 ## Methods of Data Preparation
 
@@ -67,7 +60,7 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 (1 row)
 ```
 
-### Schema Normalization -
+### Schema Normalization
 
 Examples include:
 * Match attribute names (title -> name)
