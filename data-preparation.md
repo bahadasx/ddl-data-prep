@@ -27,7 +27,9 @@ In this blog, our focus will be specifically on record linkage and canonicalizat
 
 ## Methods of Data Preparation
 
-### Data Normalization - According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
+### Data Normalization
+
+According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
 * Convert to all lower case
 * remove whitespace
