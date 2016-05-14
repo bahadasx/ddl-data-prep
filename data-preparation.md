@@ -27,10 +27,8 @@ For an introduction to Dedupe, please refer [here](https://github.com/krossetti/
 According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
 * Convert to all lower case
+
 * remove whitespace
-* remove spelling errors
-* Standardize abbreviations
-* Remove punctuation
 
 Some of the techniques mentioned above, such as standardizing abbreviations and removing spelling errors may seem like common sense when it comes to cleaning up your data in preparation for entity resolution, but how do some of the other aforementioned techniques such as removing whitespace help?  Some metrics that can be used for entity resolution are affected by whitespace, such as Levenshtein (or edit distance).  Levenshtein distance calculates the minimum number of edits necessary to change a word into another word.  Lets look at an example of whitespace can affect this score.
 
@@ -62,6 +60,15 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 (1 row)
 ```
 
+* Standardize abbreviations
+
+
+* remove spelling errors
+* Remove punctuation
+
+
+
+
 ### Schema Normalization
 
 Examples include:
@@ -77,6 +84,9 @@ As far as how to implement your strategy for data preparation there are many dif
 
 * [OpenRefine](http://openrefine.org/) - This is a free, open source tool that used to be owned by Google with many methods for workkng with messy data.
 
+* Regular Expressions - Regular Expressions, or regex, allow you to define patterns that can be used to flag instances of text that match that pattern.
+
+(maybe this should be removed or added to line below)
 * SQL scripts - Whether your data resides in a database or not, one way of preparing your data for entity resolution is to apply your prepping techniques using some SQL scripts.
 
 * Scripts using various languages (e.g., Python, R) and libraries for cleaning data (e.g., Pandas) - Using langauges such as Python and R, you can create scripts that will apply your preparation techniques to the data.  There are many libraries available for these tasks for various languages such as [Pandas](http://pandas.pydata.org/) for Python.
@@ -98,9 +108,20 @@ The sample dataset I will be using in this post comes from [OSHA](https://www.os
 
 ## Testing the Effect of Data Preparation on Canonicalization of Entities
 
-In order to test our theory that good data preparation is helpful for performing effective entity resolution, we are going to perform a test using our sample dataset and the Dedupe library.  For our tests, we will be setting up a Postgres database with our data. 
+In order to test our theory that good data preparation is helpful for performing effective entity resolution, we are going to perform a test using our sample dataset and the Dedupe library.  For our tests, we will be setting up a PostgreSQL database with our data. 
 
-**provide setup for postgres and sql data file/instructions to load file
+###OSX
+PostgreSQL is installed by default on OSX 10.7 or later.  The easiest way to get setup with PostgreSQL on OSX is to use [Postgres.app](http://postgresapp.com).  This will install version 9.5.3 of PostgreSQL along with some other useful utilities.
+
+(Include instructions on how to start DB for each one)
+
+###Windows
+
+###Linux(Ubuntu)
+
+Now that we have installed we will need to load the sample dataset.  A script(sample_data.sql) is included.  (*include command for loading SQL script)
+
+*include instructions on how to query database to check for data (select count?)
 
 First, we will run our sample dataset through Dedupe without any data preparation.
 
