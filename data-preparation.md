@@ -28,7 +28,9 @@ According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing)
 
 * Convert to all lower case
 
-* remove whitespace
+It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
+
+* Remove whitespace
 
 Some of the techniques mentioned above, such as standardizing abbreviations and removing spelling errors may seem like common sense when it comes to cleaning up your data in preparation for entity resolution, but how do some of the other aforementioned techniques such as removing whitespace help?  Some metrics that can be used for entity resolution are affected by whitespace, such as Levenshtein (or edit distance).  Levenshtein distance calculates the minimum number of edits necessary to change a word into another word.  Lets look at an example of whitespace can affect this score.
 
@@ -62,8 +64,18 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 
 * Standardize abbreviations
 
+Sometimes simple issues with text can prevent finding good matches.  This includes standardization of abbreviations.  Some common examples of text that can be standardized include:
+- Business entities (Inc, Ltd, Corp)
+- Titles - (Dr, Prof, Capt, CTO)
+- Address related fields (Dr, Ave)
+- Dates - (MMDDYYYY)
+
+The decision can be made to either expand or contract abbreviations.  Choosing one or the other will depend on your particular dataset, but usually, shortening abbreviations is a better choice since it creates less characters of text to process for comparison.
 
 * remove spelling errors
+
+Spelling errors can obviously lead to missed matches for data, so one thing you can do is to use a tool for spell checking prior to doing any Entity Resolution.  This can be done in many ways including using a program such as MS Word or Excel, using Google's "Did you Mean?" API, or writing a script in a language such as Python using a library like [NLTK](http://www.nltk.org).
+
 * Remove punctuation
 
 
@@ -103,6 +115,7 @@ The sample dataset I will be using in this post comes from [OSHA](https://www.os
 * Random punctuation
 * Spelling errors
 * Errors with addresses
+* Unwanted characters?
 
 **include table with a few examples of the issues with the data.
 
