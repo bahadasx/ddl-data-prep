@@ -62,7 +62,7 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 (1 row)
 ```
 
-#### Standardize abbreviations
+###### Standardize abbreviations
 
 Sometimes simple issues with text can prevent finding good matches.  This includes standardization of abbreviations.  Some common examples of text that can be standardized include:
 
@@ -89,11 +89,11 @@ Jan 16th, 2010   -> 1/16/2010
 
 The decision can be made to either expand or contract abbreviations.  Choosing one or the other will depend on your particular dataset, but usually, shortening abbreviations is a better choice since it creates less characters of text to process for comparison.
 
-#### Remove spelling errors
+###### Remove spelling errors
 
 Spelling errors can obviously lead to missed matches for data, so one thing you can do is to use a tool for spell checking prior to doing any Entity Resolution.  This can be done in many ways including using a program such as MS Word or Excel, using Google's "Did you Mean?" API, or writing a script in a language such as Python using a library like [NLTK](http://www.nltk.org).
 
-#### Remove punctuation
+###### Remove punctuation
 
 Punctuation in your data can create extra noise that can get in the way of ending up with good matches, similar to what we demonstrated with whitespace above.  Sometimes, punctuation may add important context to the data, in which it may make sense to leave it in, but it depends on the dataset you are using.
 
