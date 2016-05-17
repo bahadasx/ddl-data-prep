@@ -65,25 +65,26 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 #### Standardize abbreviations
 
 Sometimes simple issues with text can prevent finding good matches.  This includes standardization of abbreviations.  Some common examples of text that can be standardized include:
-- Business entities (Inc, Ltd, Corp)
+
+- Business entities (e.g., Inc, Ltd, Corp)
 ```
 Acme Corp
 Acme Corporation -> Acme Corp
 ```
-- Titles - (Dr, Prof, Capt, CTO)
+- Titles - (e.g., Dr, Prof, Capt, CTO)
 ```
 Doctor John Doe -> Dr John Doe
 Dr John Doe
 ```
-- Address related fields (Dr, Ave)
+- Address related fields (e.g., Dr, Ave)
 ```
 123 Longleaf Boulevard Va. Beach, Virginia 23454-2531 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 123 Longleaf Blvd Va Beach, VA. 23454                 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 ```
-- Dates - (MMDDYYYY)
+- Dates - (e.g., MMDDYYYY, MM/DD/YYYY)
 ```
-Jan 16th, 2010   -> 1/16/10
-1/16/10          -> 1/16/10
+Jan 16th, 2010   -> 1/16/2010
+1/16/10          -> 1/16/2010
 ```
 
 The decision can be made to either expand or contract abbreviations.  Choosing one or the other will depend on your particular dataset, but usually, shortening abbreviations is a better choice since it creates less characters of text to process for comparison.
