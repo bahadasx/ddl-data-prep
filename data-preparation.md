@@ -26,11 +26,11 @@ For an introduction to Dedupe, please refer [here](https://github.com/krossetti/
 
 According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
-###### Convert to all lower case
+##### Convert to all lower case
 
 It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
 
-###### Remove whitespace
+##### Remove whitespace
 
 Some of the techniques mentioned above, such as standardizing abbreviations and removing spelling errors may seem like common sense when it comes to cleaning up your data in preparation for entity resolution, but how do some of the other aforementioned techniques such as removing whitespace help?  Some metrics that can be used for entity resolution are affected by whitespace, such as Levenshtein (or edit distance).  Levenshtein distance calculates the minimum number of edits necessary to change a word into another word.  Lets look at an example of whitespace can affect this score.
 
@@ -62,26 +62,26 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 (1 row)
 ```
 
-###### Standardize abbreviations
+##### Standardize abbreviations
 
 Sometimes simple issues with text can prevent finding good matches.  This includes standardization of abbreviations.  Some common examples of text that can be standardized include:
 
-- Business entities (e.g., Inc, Ltd, Corp)
+Business entities (e.g., Inc, Ltd, Corp)
 ```
 Acme Corp
 Acme Corporation -> Acme Corp
 ```
-- Titles - (e.g., Dr, Prof, Capt, CTO)
+Titles - (e.g., Dr, Prof, Capt, CTO)
 ```
 Doctor John Doe -> Dr John Doe
 Dr John Doe
 ```
-- Address related fields (e.g., Dr, Ave)
+Address related fields (e.g., Dr, Ave)
 ```
 123 Longleaf Boulevard Va. Beach, Virginia 23454-2531 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 123 Longleaf Blvd Va Beach, VA. 23454                 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 ```
-- Dates - (e.g., MMDDYYYY, MM/DD/YYYY)
+Dates - (e.g., MMDDYYYY, MM/DD/YYYY)
 ```
 Jan 16th, 2010   -> 1/16/2010
 1/16/10          -> 1/16/2010
@@ -89,11 +89,11 @@ Jan 16th, 2010   -> 1/16/2010
 
 The decision can be made to either expand or contract abbreviations.  Choosing one or the other will depend on your particular dataset, but usually, shortening abbreviations is a better choice since it creates less characters of text to process for comparison.
 
-###### Remove spelling errors
+##### Remove spelling errors
 
 Spelling errors can obviously lead to missed matches for data, so one thing you can do is to use a tool for spell checking prior to doing any Entity Resolution.  This can be done in many ways including using a program such as MS Word or Excel, using Google's "Did you Mean?" API, or writing a script in a language such as Python using a library like [NLTK](http://www.nltk.org).
 
-###### Remove punctuation
+##### Remove punctuation
 
 Punctuation in your data can create extra noise that can get in the way of ending up with good matches, similar to what we demonstrated with whitespace above.  Sometimes, punctuation may add important context to the data, in which it may make sense to leave it in, but it depends on the dataset you are using.
 
