@@ -26,7 +26,7 @@ For an introduction to Dedupe, please refer [here](https://github.com/krossetti/
 
 According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
-* Convert to all lower case
+#### Convert to all lower case
 
 It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
 
@@ -78,7 +78,7 @@ Spelling errors can obviously lead to missed matches for data, so one thing you 
 
 #### Remove punctuation
 
-
+Punctuation in your data can create extra noise that can get in the way of ending up with good matches, similar to what we demonstrated with whitespace above.  Sometimes, punctuation may add important context to the data, in which it may make sense to leave it in, but it depends on the dataset you are using.
 
 
 ### Schema Normalization
@@ -94,20 +94,19 @@ Examples include:
 
 As far as how to implement your strategy for data preparation there are many different methods.  Below are some various tools you can use:
 
-* [OpenRefine](http://openrefine.org/) - This is a free, open source tool that used to be owned by Google with many methods for workkng with messy data.
+###### Scripts using various languages such as Python, R, SQL
+Using langagues such as Python, R, or SQL, you can create scripts that will apply your preparation techniques to the data.  Each of these languages has many built in functions for cleaning up data, as well as libraries available for these tasks.
 
-* Regular Expressions - Regular Expressions, or regex, allow you to define patterns that can be used to flag instances of text that match that pattern.
+###### [OpenRefine](http://openrefine.org/)
+This is a free, open source tool that used to be owned by Google with many methods for workkng with messy data.
 
-(maybe this should be added to line below)
-* SQL scripts - Whether your data resides in a database or not, one way of preparing your data for entity resolution is to apply your prepping techniques using some SQL scripts.
+###### [Regular Expressions](http://www.regular-expressions.info)
+Regular Expressions, or regex, allow you to define patterns that can be used to flag instances of text that match that pattern.
 
-* Scripts using various languages (e.g., Python, R) and libraries for cleaning data (e.g., Pandas) - Using langauges such as Python and R, you can create scripts that will apply your preparation techniques to the data.  There are many libraries available for these tasks for various languages such as [Pandas](http://pandas.pydata.org/) for Python.
-
-* Excel - Being that many people use Excel, I thought it is worth mentioning that you can clean up your data using techniques in Excel as well.
+###### [Excel](https://products.office.com/en-us/excel)
+Most people are familiar with Excel and the other tools in the Microsoft Office suite.  Being that many people use Excel, it is worth mentioning that you can clean up your data using techniques in Excel as well.
 
 ## Our Sample Dataset
-
-**Add a business case for deduping this data.  Mention the context of business vs establishment.
 
 The sample dataset I will be using in this post comes from [OSHA](https://www.osha.gov) (Occupational Safety and Health Administration) and can be obtained from the Department of Labor [Data Enforcement website](http://enforcedata.dol.gov/views/data_summary.php).  It is a CSV file containing records of safety inspections performed by OSHA inspectors at various times.  When inspectors are conducting these safety inspections, they are manually entering all information, which leads to many errors and inconsistencies.  Some of the issues with this dataset include:
 * no unique identifier for business
@@ -120,6 +119,8 @@ The sample dataset I will be using in this post comes from [OSHA](https://www.os
 These inspection records contain important information about the safety and health of the establishments and businesses all around us, including ones that we frequent on a daily basis.  As you can imagine, being able to get accurate statistics on health and safety violations is very important in determining how compliant a particular business is.  In order to gather complete and accurate statistics about these inspections and the number of related violations, we must apply entity resolution.  This will allow us to get to the goal of grouping records that refer to the same entity and represent them with a master identifier.
 
 **include table with a few examples of the issues with the data.  show example of how records can be grouped
+
+**mention establishment vs company
 
 ## Testing the Effect of Data Preparation on Canonicalization of Entities
 
