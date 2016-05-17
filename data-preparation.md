@@ -30,7 +30,7 @@ According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing)
 
 It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
 
-* Remove whitespace
+#### Remove whitespace
 
 Some of the techniques mentioned above, such as standardizing abbreviations and removing spelling errors may seem like common sense when it comes to cleaning up your data in preparation for entity resolution, but how do some of the other aforementioned techniques such as removing whitespace help?  Some metrics that can be used for entity resolution are affected by whitespace, such as Levenshtein (or edit distance).  Levenshtein distance calculates the minimum number of edits necessary to change a word into another word.  Lets look at an example of whitespace can affect this score.
 
@@ -62,7 +62,7 @@ test=# select levenshtein ('GUMBO', 'GA MBOL');
 (1 row)
 ```
 
-* Standardize abbreviations
+#### Standardize abbreviations
 
 Sometimes simple issues with text can prevent finding good matches.  This includes standardization of abbreviations.  Some common examples of text that can be standardized include:
 - Business entities (Inc, Ltd, Corp)
@@ -72,11 +72,11 @@ Sometimes simple issues with text can prevent finding good matches.  This includ
 
 The decision can be made to either expand or contract abbreviations.  Choosing one or the other will depend on your particular dataset, but usually, shortening abbreviations is a better choice since it creates less characters of text to process for comparison.
 
-* remove spelling errors
+#### Remove spelling errors
 
 Spelling errors can obviously lead to missed matches for data, so one thing you can do is to use a tool for spell checking prior to doing any Entity Resolution.  This can be done in many ways including using a program such as MS Word or Excel, using Google's "Did you Mean?" API, or writing a script in a language such as Python using a library like [NLTK](http://www.nltk.org).
 
-* Remove punctuation
+#### Remove punctuation
 
 
 
@@ -98,7 +98,7 @@ As far as how to implement your strategy for data preparation there are many dif
 
 * Regular Expressions - Regular Expressions, or regex, allow you to define patterns that can be used to flag instances of text that match that pattern.
 
-(maybe this should be removed or added to line below)
+(maybe this should be added to line below)
 * SQL scripts - Whether your data resides in a database or not, one way of preparing your data for entity resolution is to apply your prepping techniques using some SQL scripts.
 
 * Scripts using various languages (e.g., Python, R) and libraries for cleaning data (e.g., Pandas) - Using langauges such as Python and R, you can create scripts that will apply your preparation techniques to the data.  There are many libraries available for these tasks for various languages such as [Pandas](http://pandas.pydata.org/) for Python.
@@ -117,7 +117,9 @@ The sample dataset I will be using in this post comes from [OSHA](https://www.os
 * Errors with addresses
 * Unwanted characters?
 
-**include table with a few examples of the issues with the data.
+These inspection records contain important information about the safety and health of the establishments and businesses all around us, including ones that we frequent on a daily basis.  As you can imagine, being able to get accurate statistics on health and safety violations is very important in determining how compliant a particular business is.  In order to gather complete and accurate statistics about these inspections and the number of related violations, we must apply entity resolution.  This will allow us to get to the goal of grouping records that refer to the same entity and represent them with a master identifier.
+
+**include table with a few examples of the issues with the data.  show example of how records can be grouped
 
 ## Testing the Effect of Data Preparation on Canonicalization of Entities
 
