@@ -71,7 +71,7 @@ Business entities (e.g., Inc, Ltd, Corp)
 Acme Corp
 Acme Corporation -> Acme Corp
 ```
-Titles - (e.g., Dr, Prof, Capt, CTO)
+Titles (e.g., Dr, Prof, Capt, CTO)
 ```
 Doctor John Doe -> Dr John Doe
 Dr John Doe
@@ -81,7 +81,7 @@ Address related fields (e.g., Dr, Ave)
 123 Longleaf Boulevard Va. Beach, Virginia 23454-2531 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 123 Longleaf Blvd Va Beach, VA. 23454                 -> 123 Longleaf Blvd Virginia Beach, VA. 23454-2531
 ```
-Dates - (e.g., MMDDYYYY, MM/DD/YYYY)
+Dates (e.g., MMDDYYYY, MM/DD/YYYY)
 ```
 Jan 16th, 2010   -> 1/16/2010
 1/16/10          -> 1/16/2010
@@ -143,14 +143,14 @@ These inspection records contain important information about the safety and heal
 
 In order to test our theory that good data preparation is helpful for performing effective entity resolution, we are going to perform a test using our sample dataset and the Dedupe library.  For our tests, we will be setting up a PostgreSQL database with our data. 
 
-###OSX
+##### OSX
 PostgreSQL is installed by default on OSX 10.7 or later.  The easiest way to get setup with PostgreSQL on OSX is to use [Postgres.app](http://postgresapp.com).  This will install version 9.5.3 of PostgreSQL along with some other useful utilities.
 
 (Include instructions on how to start DB for each one)
 
-###Windows
+##### Windows
 
-###Linux(Ubuntu)
+##### Linux(Ubuntu)
 
 Now that we have installed we will need to load the sample dataset.  A script(sample_data.sql) is included.  (*include command for loading SQL script)
 
