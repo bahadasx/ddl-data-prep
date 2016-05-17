@@ -26,11 +26,11 @@ For an introduction to Dedupe, please refer [here](https://github.com/krossetti/
 
 According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
-#### Convert to all lower case
+###### Convert to all lower case
 
 It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
 
-#### Remove whitespace
+###### Remove whitespace
 
 Some of the techniques mentioned above, such as standardizing abbreviations and removing spelling errors may seem like common sense when it comes to cleaning up your data in preparation for entity resolution, but how do some of the other aforementioned techniques such as removing whitespace help?  Some metrics that can be used for entity resolution are affected by whitespace, such as Levenshtein (or edit distance).  Levenshtein distance calculates the minimum number of edits necessary to change a word into another word.  Lets look at an example of whitespace can affect this score.
 
