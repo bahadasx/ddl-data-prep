@@ -6,9 +6,9 @@
 
 ### Data Preparation and Data Science
 
-Data preparation refers to the act of manipulating ones data to transform it into a suitable form for further analysis and processing.  This process involves many different tasks and requires understanding of what manipulations are necessary for a particular dataset, as well as what the goal is in terms of how you plan to process the data further.  Some of the tasks that can be part of a data preparation for a particular project include data cleaning, normalization, and imputation. 
+Data preparation refers to the act of manipulating data to transform it into a suitable form for further analysis and processing.  This process involves many different tasks and requires understanding of what manipulations are necessary for a particular dataset, as well as what the goal is in terms of how you plan to process the data further.  Some of the tasks that can be part of a data preparation for a particular project include data cleaning, normalization, and imputation. 
 
-Data preparation is a part of many data related projects, but specifically in terms of Data Science, it is said that data preparation accounts for about 60% of the time spent on a project.  Considering the percentage of time spent on this task, you can conclude that is the most crucial part of the Data Science process.  Without proper data preparation, you cannot expect the results of your analysis very accurate results.  The principal of "garbage in, garbage out" is very applicable in this context.  In this blog we will be discussing the basics of data preparation, some techniques that can be applied to a sample dataset, and a comparison of performing Entity Resolution with and without performing proper data preparation.
+Data preparation is a part of many data related projects, but specifically in terms of Data Science, it is said that data preparation accounts for about 60% of the time spent on a project.  Considering the percentage of time spent on this task, it can be concluded that this is the most crucial part of the Data Science process.  Without proper data preparation, you cannot expect the results of your analysis to produce very accurate results.  The principal of "garbage in, garbage out" is very applicable in this context.  In this blog we will be discussing the basics of data preparation, some techniques that can be applied to a sample dataset, and a comparison of performing Entity Resolution with and without performing proper data preparation.
 
 ### Entity Resolution
 
@@ -24,11 +24,11 @@ For an introduction to Dedupe, please refer [here](https://github.com/krossetti/
 
 ### Data Normalization
 
-According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of Entity Resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
+According to [wikipedia](https://en.wikipedia.org/wiki/Canonical_form#Computing), the reduction of data to any kind of canonical form is commonly called data normalization.  In the context of entity resolution, this is the process of disambiguating or standardizing the data, which will help improve matching.  Below are some examples of normalization techniques:
 
 ##### Convert to all lower case
 
-It is helpful to have all text standardized to the same case prior to doing comparison.  Doing is helpful so all characters are standardized, but also can improve the performance of any matching processes.
+It is helpful to have all text standardized to the same case prior to doing comparison.  Doing so is helpful so all characters are standardized, but also can improve the performance of any matching processes.
 
 ##### Remove whitespace
 
@@ -126,12 +126,12 @@ Most people are familiar with Excel and the other tools in the Microsoft Office 
 ## Our Sample Dataset
 
 The sample dataset I will be using in this post comes from [OSHA](https://www.osha.gov) (Occupational Safety and Health Administration) and can be obtained from the Department of Labor [Data Enforcement website](http://enforcedata.dol.gov/views/data_summary.php).  It is a CSV file containing records of safety inspections performed by OSHA inspectors at various times.  When inspectors are conducting these safety inspections, they are manually entering all information, which leads to many errors and inconsistencies.  Some of the issues with this dataset include:
-* no unique identifier for business
-* non-standardized entry of business names
+* No unique identifier for business
+* Non-standardized entry of business names
 * Random punctuation
 * Spelling errors
 * Errors with addresses
-* Unwanted characters?
+* Unwanted characters
 
 These inspection records contain important information about the safety and health of the establishments and businesses all around us, including ones that we frequent on a daily basis.  As you can imagine, being able to get accurate statistics on health and safety violations is very important in determining how compliant a particular business is.  In order to gather complete and accurate statistics about these inspections and the number of related violations, we must apply entity resolution.  This will allow us to get to the goal of grouping records that refer to the same entity and represent them with a master identifier.
 
@@ -146,37 +146,38 @@ In order to test our theory that good data preparation is helpful for performing
 ##### OSX
 PostgreSQL is installed by default on OSX 10.7 or later.  The easiest way to get setup with PostgreSQL on OSX is to use [Postgres.app](http://postgresapp.com).  This will install version 9.5.3 of PostgreSQL along with some other useful utilities.
 
-(Include instructions on how to start DB for each one)
+> include instructions on how to start DB
 
 ##### Windows
 
 ##### Linux(Ubuntu)
 
-Now that we have installed we will need to load the sample dataset.  A script(sample_data.sql) is included.  (*include command for loading SQL script)
+Now that we have installed we will need to load the sample dataset.  A script(sample_data.sql) is included.
 
-*include instructions on how to query database to check for data (select count?)
+> include command for loading SQL script
+
+> include instructions on how to query database to check for data (select count?)
 
 First, we will run our sample dataset through Dedupe without any data preparation.
 
-**Do active learning
+> do active learning process
 
-**Do clustering
+> do clustering process
 
-**Show results
+> show results
 
 Next, we will run our sample dataset through Dedupe again.  This time though, we will perform some data preparation to clean up the data a bit.
 
-Perform data prep on file
+> perform data prep on file
 
-Do active learning
+> do active learning
 
-Do clustering
+> do clustering
 
-Show results
+> show results
 
-How can we visualize these results?
+> provide examples of how we can visualize these results
 
 ## Conclusion
 
 ## Additional Readings
-
